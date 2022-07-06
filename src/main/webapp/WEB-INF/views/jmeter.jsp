@@ -35,7 +35,7 @@
 				</div>
 			</div>
 			<div class="uk-navbar-right">
-				<h2><img src="/static/images/logo-sub.png" /></h2>
+				<h2></h2>
 				<ul class="uk-navbar-nav user">
 					<li>
 						<button type="button" class="uk-flex uk-flex-middle"><img
@@ -201,12 +201,12 @@
 						<tbody>
 						<c:forEach var="item" items="${codes}" varStatus="status">
 							<tr>
-								<td class="tl"><i class="cocktail-icon coral-color">&#xa009;</i>${item.fileId}</td>
-								<td class="tc">${item.fileType}</td>
-								<td class="tc">${item.fileNm}</td>
-								<td class="tc">${item.filePath}</td>
-								<td class="tc">${item.resv5}</td>
-								<td class="tc">${item.resv4}</td>
+								<td class="tl"><i class="cocktail-icon coral-color">&#xa009;</i>${item.FILEID}</td>
+								<td class="tc">${item.FILETYPE}</td>
+								<td class="tc">${item.FILENM}</td>
+								<td class="tc">${item.FILEPATH}</td>
+								<td class="tc">${item.RESV5}</td>
+								<td class="tc">${item.RESV4}</td>
 							</tr>
 						</c:forEach>
 						</tbody>

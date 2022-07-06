@@ -18,6 +18,6 @@ public abstract class DatabaseConfig {
         dataSource.setMaxIdle(databaseProperties.getMaxIdle());
         dataSource.setMinIdle(databaseProperties.getMinIdle());
         dataSource.setTestOnBorrow(true);
-        dataSource.setValidationQuery("SELECT 1");
+        dataSource.setValidationQuery("SELECT 1 from DUAL");
     }
 }
