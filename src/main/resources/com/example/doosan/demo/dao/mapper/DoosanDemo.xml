@@ -50,4 +50,10 @@
 		where code_group_id = 'GCP_REGION'
 	</select>
 
+	<select id="getCsiSite" resultType="hashmap">
+		SELECT /* [DoosanDemo.xml].[getDevices] */
+		site_cd fileId
+		from csi_site
+	</select>
+
 </mapper>

@@ -195,11 +195,20 @@ public class DoosanDemoService {
 
 
     public List<Map<String, Object>> getCodes2() {
-
         IDoosanDemoMapper dao = sqlSession.getMapper(IDoosanDemoMapper.class);
 
         List<Map<String, Object>> codes = dao.getCodes2();
 
         return codes;
     }
+
+    public List<Map<String, Object>> getCsiSite() {
+
+        IDoosanDemoMapper dao = sqlSession.getMapper(IDoosanDemoMapper.class);
+
+        List<Map<String, Object>> codes = dao.getCsiSite();
+
+        return codes;
+    }
+
 }

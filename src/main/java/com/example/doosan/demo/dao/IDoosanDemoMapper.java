@@ -11,6 +11,8 @@ public interface IDoosanDemoMapper {
 
     List<Map<String, Object>> getCodes2();
 
+    List<Map<String, Object>> getCsiSite();
+
     List<Map<String, Object>> getCodeParam(String param);
 
 }

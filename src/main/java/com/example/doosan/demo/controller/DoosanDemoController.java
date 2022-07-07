@@ -3,6 +3,8 @@ package com.example.doosan.demo.controller;
 import com.example.doosan.demo.service.CodeService;
 import com.example.doosan.demo.service.DoosanDemoService;
 import com.example.doosan.demo.vo.CodeVO;
+import com.example.doosan.framework.properties.DoosanDBProperties;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,12 +18,16 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+@Slf4j
 @Controller
 @RequestMapping(value = "/view")
 public class DoosanDemoController {
 
     @Autowired
     private DoosanDemoService doosanDemoService;
+
+    @Autowired
+    private DoosanDBProperties doosanDBProperties;
 
 
     @GetMapping("/hello")
@@ -45,9 +51,19 @@ public class DoosanDemoController {
 
     @GetMapping("/jmeter")
     public String jmeter(Model model) {
+        this.printDBInfo();
+
         List<Map<String, Object>> codes = doosanDemoService.getCodes2();
         model.addAttribute("codes", codes);
         return "jmeter";
+    }
+
+    @GetMapping("/kaist")
+    public String kaist(Model model) {
+        this.printDBInfo();
+        List<Map<String, Object>> codes = doosanDemoService.getCsiSite();
+        model.addAttribute("codes", codes);
+        return "sitecd";
     }
 
     @GetMapping("/demo/{groupId}")
@@ -86,5 +102,13 @@ public class DoosanDemoController {
 
 
         return "deviceDemo";
+    }
+
+    private void printDBInfo() {
+        log.info("====================================");
+        log.info("DB URL : " + doosanDBProperties.getUrl());
+        log.info("DB User : " + doosanDBProperties.getUserName());
+        log.info("DB URL : " + doosanDBProperties.getPassword());
+        log.info("====================================");
     }
 }
